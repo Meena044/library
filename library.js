@@ -2,7 +2,8 @@ const BookList = [];
 const BookContainer = document.querySelector(".container");
 const addbtn = document.getElementById("Add");
 const dialog = document.querySelector("dialog");
-const submitbtn = document.querySelector("#submitbtn");
+// const submitbtn = document.querySelector("#submitbtn");
+const form = document.querySelector("#getbook");
 const cancelbtn = document.querySelector("#cancelbtn");
 const title = document.querySelector("#title");
 const bookauthor = document.querySelector("#author");
@@ -18,17 +19,21 @@ cancelbtn.addEventListener("click", ()=>{
     dialog.close();
 });
 
-submitbtn.addEventListener("click", (e)=>{
+form.addEventListener("submit", (e)=>{
     e.preventDefault();
 
-    getBookDetails(title.value, bookauthor.value, parseInt(pagecount.value),completed.value);
+    // trim used to remove whitespace
+    getBookDetails(title.value.trim(), bookauthor.value.trim(), parseInt(pagecount.value),completed.value);
+
+    // book add through form to display
+    const currBook = BookList[BookList.length - 1];
+    addToDisplay(currBook);
 
     title.value="";
     bookauthor.value ="";
     pagecount.value="";
     completed.value ="true";
     dialog.close();
-
 });
 
 function Book(name, author, pages, status){
@@ -50,8 +55,12 @@ function getBookDetails(title, writer, totalpages, readStatus){
 
 getBookDetails("1984", "George Orwell", 328, true);
 getBookDetails("To Kill a Mockingbird", "Harper Lee", 281, false);
+getBookDetails("The Hobbit", "J.R.R. Tolkien", 310, true);
 
-BookList.forEach(element => {
+
+BookList.forEach(element => addToDisplay(element) );
+
+function addToDisplay(element){
     // adding book details to display
     const eachBook = document.createElement("div");
     eachBook.classList.add("cards");
@@ -75,5 +84,4 @@ BookList.forEach(element => {
     remove.addEventListener("mouseout",()=>{
         remove.style.backgroundColor = "rgb(58, 27, 1)"
     });
-});
-
+}

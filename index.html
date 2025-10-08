@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="libraryDesign.css">
     <script src="library.js" defer></script>
@@ -20,6 +20,7 @@
             <input type="number" id="pages" required>
             <label for="readstatus">Have you read the book?</label>
             <select name="readd" id="readstatus" required>
+                <option value="" disabled selected>Select</option>
                 <option value="true">Read</option>
                 <option value="false">Not yet</option>
             </select>

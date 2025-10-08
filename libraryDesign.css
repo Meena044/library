@@ -1,22 +1,33 @@
 body{
     background-color: rgb(241, 184, 167);
+    box-sizing: border-box;
+    overflow-x: auto;
 }
 .container{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     gap: 2rem;
+    width: 100%;
+    margin: auto;
 }
 
 .cards{
-    /* width: 20rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 15rem;
     height: auto;
     background-color: bisque;
-    line-height: 2rem;
     font-size: 1.3rem;
     padding: 2rem;
-    margin: 2rem;
+    margin: 1rem auto;
     border-radius: 1rem ;
+    white-space: normal;      
+    word-wrap: break-word;    
+    overflow-wrap: break-word; 
 }
 
 #Add, #remove, button{
@@ -56,11 +67,22 @@ label{
     margin: 0 1rem;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 962px){
+    .container{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        gap: 2rem;
+        margin-right:1rem ;
+        align-items: center;
+    }
+}
+
+@media (max-width: 700px) {
     .container{
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         gap: 2rem;
+        margin-right:1rem ;
     }
 
     input, select{
