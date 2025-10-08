@@ -19,7 +19,7 @@ body{
     border-radius: 1rem ;
 }
 
-#Add, #remove{
+#Add, #remove, button{
     width: 7rem;
     height: 3rem;
     border: none;
@@ -29,4 +29,44 @@ body{
     background-color: rgb(58, 27, 1) ;
     color: whitesmoke;
     margin-top: 1rem;
+}
+
+dialog::backdrop{
+    background-color:  rgba(58, 27, 1,0.4);
+}
+
+#getbook{
+    display: flex;
+    flex-direction: column;
+}
+
+input, select{
+    width: 25rem;
+    height: 2rem;
+    background-color: rgb(248, 228, 204);
+    margin: 1rem;
+    border: none;
+    font-size: 1.3rem;
+}
+
+
+label{
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 1rem;
+}
+
+@media (max-width: 500px) {
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 2rem;
+    }
+
+    input, select{
+        width: 10rem;
+        height: rem;
+        margin: 1rem;
+    }
+    
 }

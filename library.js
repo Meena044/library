@@ -1,5 +1,35 @@
 const BookList = [];
 const BookContainer = document.querySelector(".container");
+const addbtn = document.getElementById("Add");
+const dialog = document.querySelector("dialog");
+const submitbtn = document.querySelector("#submitbtn");
+const cancelbtn = document.querySelector("#cancelbtn");
+const title = document.querySelector("#title");
+const bookauthor = document.querySelector("#author");
+const pagecount = document.querySelector("#pages");
+const completed = document.querySelector("#readstatus");
+
+// show form on display
+addbtn.addEventListener("click", ()=>{
+    dialog.showModal();
+});
+
+cancelbtn.addEventListener("click", ()=>{
+    dialog.close();
+});
+
+submitbtn.addEventListener("click", (e)=>{
+    e.preventDefault();
+
+    getBookDetails(title.value, bookauthor.value, parseInt(pagecount.value),completed.value);
+
+    title.value="";
+    bookauthor.value ="";
+    pagecount.value="";
+    completed.value ="true";
+    dialog.close();
+
+});
 
 function Book(name, author, pages, status){
     this.Id = crypto.randomUUID();
@@ -34,8 +64,7 @@ BookList.forEach(element => {
     remove.textContent = "Delete";
     eachBook.append(remove);
 
-    remove.addEventListener("click", (e)=>{
-        
+    remove.addEventListener("click", ()=>{
         eachBook.remove();
     });
 

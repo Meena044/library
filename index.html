@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
     <title>Library</title>
     <link rel="stylesheet" href="libraryDesign.css">
     <script src="library.js" defer></script>
@@ -10,6 +10,27 @@
 <body>
     <h1>Library</h1>
     <button id="Add">Add Book</button>
+    <dialog data-modal>
+        <form id="getbook">
+            <label for="title">Title</label>
+            <input type="text" id="title" required>
+            <label for="author">Author</label>
+            <input type="text" id="author" required>
+            <label for="pages">Pages</label>
+            <input type="number" id="pages" required>
+            <label for="readstatus">Have you read the book?</label>
+            <select name="readd" id="readstatus" required>
+                <option value="true">Read</option>
+                <option value="false">Not yet</option>
+            </select>
+            <div class="buttons">
+                <button id="submitbtn" type="submit" >Submit</button>
+                <button id="cancelbtn" type="button">Cancel</button>
+            </div>
+
+            
+        </form>
+    </dialog>
     <div class="container">
     </div>
 
