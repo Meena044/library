@@ -36,15 +36,17 @@ form.addEventListener("submit", (e)=>{
     dialog.close();
 });
 
-function Book(name, author, pages, status){
-    this.Id = crypto.randomUUID();
-    this.bookName= name;
-    this.author = author;
-    this.noOfPages = pages;
-    this.status = status;
-    this.info = function(){
-        return this.status ? "read" : "not read";
-         
+class Book {
+    constructor(name, author, pages, status) {
+        this.Id = crypto.randomUUID();
+        this.bookName = name;
+        this.author = author;
+        this.noOfPages = pages;
+        this.status = status;
+        this.info = function () {
+            return this.status ? "read" : "not read";
+
+        };
     }
 }
 
